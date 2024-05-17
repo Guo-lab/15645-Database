@@ -17,4 +17,4 @@
 | Q10| √ | √ |
 
 
-Additional information: I have Checked all the answers with my friend.  
+Additional information: I have Checked all the answers with my friend. Only Q10 contained an ambiguity. 

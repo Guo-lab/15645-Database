@@ -13,6 +13,7 @@ where
     and area.name = 'United Kingdom'
     and artist_credit_name.name = 'The Beatles'
     and release_info.date_year is not null
+        and release_info.date_year < artist.end_date_year 
 group by release_name
 order by release_year, release_name;
 

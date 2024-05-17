@@ -1,0 +1,200 @@
+┌────────────────────┬──────────────────────────────────────────────────────────────────────────┬──────────────┐
+│    artist_name     │                               release_name                               │ release_year │
+│      varchar       │                                 varchar                                  │    int64     │
+├────────────────────┼──────────────────────────────────────────────────────────────────────────┼──────────────┤
+│ Akim               │ Pa' olvidarte (Panamá remix)                                             │         2019 │
+│ Ale Mendoza        │ Está pa' mí (remix)                                                      │         2018 │
+│ Ale Mendoza        │ Piloteando la nave (remix)                                               │         2017 │
+│ Alesso             │ Let Me Go                                                                │         2017 │
+│ Black Mayonnaise   │ Dick Goddard's Wintery Forest Revisited                                  │         2013 │
+│ Burna Boy          │ Baddest                                                                  │         2015 │
+│ B‐Case             │ Feel It!                                                                 │         2013 │
+│ Carnage            │ Hella Neck                                                               │         2020 │
+│ Chucho Flash       │ Hecha completa                                                           │         2018 │
+│ Deorro             │ Shakalaka                                                                │         2018 │
+│ Domo Genesis       │ Rella                                                                    │         2012 │
+│ Dubzy              │ Hungry for Dis                                                           │         2016 │
+│ Ed Sheeran         │ Take Me Back to London (remix)                                           │         2019 │
+│ Ed Sheeran         │ Lay It All on Me (Rudi VIP mix)                                          │         2015 │
+│ Farruko            │ Celebration                                                              │         2019 │
+│ Farruko            │ Como soy II                                                              │         2019 │
+│ Farruko            │ Pa' olvidarte (remix)                                                    │         2019 │
+│ Farruko            │ Mujeres (remix)                                                          │         2018 │
+│ Farruko            │ Inolvidable (remix)                                                      │         2018 │
+│ Farruko            │ Carbon Sport                                                             │         2018 │
+│ Farruko            │ Media hora                                                               │         2018 │
+│ Farruko            │ Quiéreme (remix)                                                         │         2018 │
+│ Farruko            │ Juraste                                                                  │         2017 │
+│ Farruko            │ Pura falsedad                                                            │         2017 │
+│ Farruko            │ Blockia                                                                  │         2017 │
+│ Farruko            │ Su forma de ser (remix)                                                  │         2017 │
+│ Farruko            │ Siempre me llama (remix)                                                 │         2016 │
+│ Farruko            │ Juguetona (remix)                                                        │         2016 │
+│ Farruko            │ Panda (remix)                                                            │         2016 │
+│ Farruko            │ Nasty (remix)                                                            │         2016 │
+│ Farruko            │ De rumba (remix)                                                         │         2016 │
+│ Farruko            │ Lo que quiero (remix)                                                    │         2015 │
+│ Farruko            │ Los reyes del malianteo                                                  │         2014 │
+│ Farruko            │ Una vaina loca (All Star remix)                                          │         2011 │
+│ Farruko            │ 2 amigas (remix)                                                         │         2011 │
+│ Farruko            │ Hoy                                                                      │         2011 │
+│ Frenna             │ Culo                                                                     │         2018 │
+│ Ghostemane         │ Death by Dishonor                                                        │         2017 │
+│ Guru Randhawa      │ Saaho (Tamil) [Original Motion Picture Soundtrack]                       │         2019 │
+│ Guru Randhawa      │ Ban Ja Rani                                                              │         2017 │
+│ Jon Z              │ Bésame (remix)                                                           │         2018 │
+│ Jon Z              │ Pali2 (remix)                                                            │         2018 │
+│ Jon Z              │ Lo que yo diga (Dema Ga Ge Gi Go Gu remix)                               │         2018 │
+│ Jon Z              │ Se te hizo tarde                                                         │         2018 │
+│ Jon Z              │ Culo pa' arriba                                                          │         2017 │
+│ Kevin Flórez       │ Aquí se queda (remix)                                                    │         2018 │
+│ Kevin Flórez       │ Nuestra fiesta                                                           │         2016 │
+│ Lofty305           │ (RIP YAMS) SPACEGHOSTPUSSY                                               │         2016 │
+│ London on da Track │ Throw Fits                                                               │         2019 │
+│ London on da Track │ Up Now                                                                   │         2018 │
+│ London on da Track │ Up Now                                                                   │         2018 │
+│ London on da Track │ Cocky                                                                    │         2018 │
+│ Luan Santana       │ Com que roupa                                                            │         2018 │
+│ Matoma             │ Old Thing Back                                                           │         2015 │
+│ Mr Eazi            │ Tied Up                                                                  │         2018 │
+│ Mr Eazi            │ Let Me Live (Banx & Ranx remix)                                          │         2018 │
+│ Mr Eazi            │ Let Me Live                                                              │         2018 │
+│ Mr Eazi            │ Money                                                                    │         2017 │
+│ PnB Rock           │ Leave Em Alone                                                           │         2019 │
+│ PnB Rock           │ Gang Up                                                                  │         2017 │
+│ Quavo              │ 100 Bands                                                                │         2019 │
+│ Quavo              │ 100 Bands                                                                │         2019 │
+│ Quavo              │ No Brainer                                                               │         2018 │
+│ Quavo              │ No Brainer                                                               │         2018 │
+│ Quavo              │ Know No Better (Afrojack freemix)                                        │         2017 │
+│ Quavo              │ Know No Better (remixes)                                                 │         2017 │
+│ Quavo              │ Good Drank 2.0                                                           │         2017 │
+│ Simi Stylezz       │ Heaven or Hell                                                           │         2019 │
+│ Stephen            │ Crossfire, Part III                                                      │         2017 │
+│ Steven Malcolm     │ Oh My God (remix)                                                        │         2019 │
+│ Tyler, the Creator │ Rella                                                                    │         2012 │
+│ VI Seconds         │ Let Me in the Game                                                       │         2013 │
+│ Young Thug         │ Cheat Code Mode                                                          │         2020 │
+│ Young Thug         │ Bullets With Names                                                       │         2020 │
+│ Young Thug         │ Old Town Road (remix)                                                    │         2019 │
+│ Young Thug         │ BANK ROLL                                                                │         2019 │
+│ Young Thug         │ Oh I                                                                     │         2017 │
+│ Young Thug         │ Heatstroke                                                               │         2017 │
+│ Young Thug         │ Gang Up                                                                  │         2017 │
+│ Young Thug         │ Low                                                                      │         2014 │
+│ Даниил Трифонов    │ Destination Rachmaninov: Arrival                                         │         2019 │
+│ Даниил Трифонов    │ Destination Rachmaninov: Departure                                       │         2018 │
+│ Даниил Трифонов    │ Preghiera / Piano Trios                                                  │         2017 │
+│ Даниил Трифонов    │ Variations                                                               │         2015 │
+│ Даниил Трифонов    │ Piano Concerto no. 1                                                     │         2012 │
+│ 斉藤壮馬           │ SSSS.GRIDMAN CHARACTER SONG.1                                            │         2018 │
+│ 花江夏樹           │ 欲張りDreamer                                                            │         2018 │
+│ 花江夏樹           │ ヘヴィーオブジェクト キャラクターソング Vol.1                            │         2016 │
+│ 花江夏樹           │ ミカグラ学園組曲 vol.2 キャラクターソングCD                              │         2015 │
+│ 花江夏樹           │ TVアニメ「ダイヤのA」キャラクターソングシリーズEX 風の中のシーソーゲーム │         2015 │
+│ 花江夏樹           │ ソードアート・オンラインⅡ Phantom Bullet 4 特典CD                        │         2014 │
+│ 그냥노창           │ NO.MERCY (노머시) Part.5                                                 │         2015 │
+│ 주영               │ NO.MERCY (노머시) Part.3                                                 │         2015 │
+├────────────────────┴──────────────────────────────────────────────────────────────────────────┴──────────────┤
+│ 93 rows                                                                                            3 columns │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────┬──────────────────────────────────────────────────────────────────────────┬──────────────┐
+│    artist_name     │                               release_name                               │ release_year │
+│      varchar       │                                 varchar                                  │    int64     │
+├────────────────────┼──────────────────────────────────────────────────────────────────────────┼──────────────┤
+│ Akim               │ Pa' olvidarte (Panamá remix)                                             │         2019 │
+│ Ale Mendoza        │ Está pa' mí (remix)                                                      │         2018 │
+│ Ale Mendoza        │ Piloteando la nave (remix)                                               │         2017 │
+│ Alesso             │ Let Me Go                                                                │         2017 │
+│ Black Mayonnaise   │ Dick Goddard's Wintery Forest Revisited                                  │         2013 │
+│ Burna Boy          │ Baddest                                                                  │         2015 │
+│ B‐Case             │ Feel It!                                                                 │         2013 │
+│ Carnage            │ Hella Neck                                                               │         2020 │
+│ Chucho Flash       │ Hecha completa                                                           │         2018 │
+│ Deorro             │ Shakalaka                                                                │         2018 │
+│ Domo Genesis       │ Rella                                                                    │         2012 │
+│ Dubzy              │ Hungry for Dis                                                           │         2016 │
+│ Ed Sheeran         │ Take Me Back to London (remix)                                           │         2019 │
+│ Ed Sheeran         │ Lay It All on Me (Rudi VIP mix)                                          │         2015 │
+│ Farruko            │ Celebration                                                              │         2019 │
+│ Farruko            │ Como soy II                                                              │         2019 │
+│ Farruko            │ Pa' olvidarte (remix)                                                    │         2019 │
+│ Farruko            │ Mujeres (remix)                                                          │         2018 │
+│ Farruko            │ Inolvidable (remix)                                                      │         2018 │
+│ Farruko            │ Carbon Sport                                                             │         2018 │
+│ Farruko            │ Lo que yo diga (Dema Ga Ge Gi Go Gu remix)                               │         2018 │
+│ Farruko            │ Quiéreme (remix)                                                         │         2018 │
+│ Farruko            │ Juraste                                                                  │         2017 │
+│ Farruko            │ Pura falsedad                                                            │         2017 │
+│ Farruko            │ Blockia                                                                  │         2017 │
+│ Farruko            │ Su forma de ser (remix)                                                  │         2017 │
+│ Farruko            │ Siempre me llama (remix)                                                 │         2016 │
+│ Farruko            │ Juguetona (remix)                                                        │         2016 │
+│ Farruko            │ Panda (remix)                                                            │         2016 │
+│ Farruko            │ Nasty (remix)                                                            │         2016 │
+│ Farruko            │ De rumba (remix)                                                         │         2016 │
+│ Farruko            │ Lo que quiero (remix)                                                    │         2015 │
+│ Farruko            │ Los reyes del malianteo                                                  │         2014 │
+│ Farruko            │ Una vaina loca (All Star remix)                                          │         2011 │
+│ Farruko            │ 2 amigas (remix)                                                         │         2011 │
+│ Farruko            │ Hoy                                                                      │         2011 │
+│ Frenna             │ Culo                                                                     │         2018 │
+│ Ghostemane         │ Death by Dishonor                                                        │         2017 │
+│ Guru Randhawa      │ Saaho (Tamil) [Original Motion Picture Soundtrack]                       │         2019 │
+│ Guru Randhawa      │ Ban Ja Rani                                                              │         2017 │
+│ Jon Z              │ Bésame (remix)                                                           │         2018 │
+│ Jon Z              │ Pali2 (remix)                                                            │         2018 │
+│ Jon Z              │ Lo que yo diga (Dema Ga Ge Gi Go Gu remix)                               │         2018 │
+│ Jon Z              │ Se te hizo tarde                                                         │         2018 │
+│ Jon Z              │ Culo pa' arriba                                                          │         2017 │
+│ Kevin Flórez       │ Aquí se queda (remix)                                                    │         2018 │
+│ Kevin Flórez       │ Nuestra fiesta                                                           │         2016 │
+│ Lofty305           │ (RIP YAMS) SPACEGHOSTPUSSY                                               │         2016 │
+│ London on da Track │ Throw Fits                                                               │         2019 │
+│ London on da Track │ Up Now                                                                   │         2018 │
+│ London on da Track │ Up Now                                                                   │         2018 │
+│ London on da Track │ Cocky                                                                    │         2018 │
+│ Luan Santana       │ Com que roupa                                                            │         2018 │
+│ Matoma             │ Old Thing Back                                                           │         2015 │
+│ Mr Eazi            │ Tied Up                                                                  │         2018 │
+│ Mr Eazi            │ Let Me Live (Banx & Ranx remix)                                          │         2018 │
+│ Mr Eazi            │ Let Me Live                                                              │         2018 │
+│ Mr Eazi            │ Money                                                                    │         2017 │
+│ PnB Rock           │ Leave Em Alone                                                           │         2019 │
+│ PnB Rock           │ Gang Up                                                                  │         2017 │
+│ Quavo              │ 100 Bands                                                                │         2019 │
+│ Quavo              │ 100 Bands                                                                │         2019 │
+│ Quavo              │ No Brainer                                                               │         2018 │
+│ Quavo              │ No Brainer                                                               │         2018 │
+│ Quavo              │ Know No Better (Afrojack freemix)                                        │         2017 │
+│ Quavo              │ Know No Better (remixes)                                                 │         2017 │
+│ Quavo              │ Good Drank 2.0                                                           │         2017 │
+│ Simi Stylezz       │ Heaven or Hell                                                           │         2019 │
+│ Stephen            │ Crossfire, Part III                                                      │         2017 │
+│ Steven Malcolm     │ Oh My God (remix)                                                        │         2019 │
+│ Tyler, the Creator │ Rella                                                                    │         2012 │
+│ VI Seconds         │ Let Me in the Game                                                       │         2013 │
+│ Young Thug         │ Cheat Code Mode                                                          │         2020 │
+│ Young Thug         │ Bullets With Names                                                       │         2020 │
+│ Young Thug         │ Old Town Road (remix)                                                    │         2019 │
+│ Young Thug         │ BANK ROLL                                                                │         2019 │
+│ Young Thug         │ Oh I                                                                     │         2017 │
+│ Young Thug         │ Heatstroke                                                               │         2017 │
+│ Young Thug         │ Gang Up                                                                  │         2017 │
+│ Young Thug         │ Low                                                                      │         2014 │
+│ Даниил Трифонов    │ Destination Rachmaninov: Arrival                                         │         2019 │
+│ Даниил Трифонов    │ Destination Rachmaninov: Departure                                       │         2018 │
+│ Даниил Трифонов    │ Preghiera / Piano Trios                                                  │         2017 │
+│ Даниил Трифонов    │ Variations                                                               │         2015 │
+│ Даниил Трифонов    │ Piano Concerto no. 1                                                     │         2012 │
+│ 斉藤壮馬           │ SSSS.GRIDMAN CHARACTER SONG.1                                            │         2018 │
+│ 花江夏樹           │ 欲張りDreamer                                                            │         2018 │
+│ 花江夏樹           │ ヘヴィーオブジェクト キャラクターソング Vol.1                            │         2016 │
+│ 花江夏樹           │ ミカグラ学園組曲 vol.2 キャラクターソングCD                              │         2015 │
+│ 花江夏樹           │ TVアニメ「ダイヤのA」キャラクターソングシリーズEX 風の中のシーソーゲーム │         2015 │
+│ 花江夏樹           │ ソードアート・オンラインⅡ Phantom Bullet 4 特典CD                        │         2014 │
+│ 그냥노창           │ NO.MERCY (노머시) Part.5                                                 │         2015 │
+│ 주영               │ NO.MERCY (노머시) Part.3                                                 │         2015 │
+├────────────────────┴──────────────────────────────────────────────────────────────────────────┴──────────────┤
+│ 93 rows                                                                                            3 columns │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
