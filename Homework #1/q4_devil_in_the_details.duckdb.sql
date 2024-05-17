@@ -1,11 +1,19 @@
-select work_type.name as work_type, 
-    ANY_VALUE(work.name) as work_name, 
-    max(len(work.comment)) as comment_length, 
-    ANY_VALUE(work.comment) as comment
-from work_type
-join work on work.type = work_type.id
-where len(work.comment) > 0
-group by work_type.name
+with rank_length as (
+    select work_type.name as work_type, 
+        work.name as work_name, 
+        length(work.comment) as comment_length, 
+        work.comment as comment,
+        rank() over (partition by work.type order by length(work.comment) desc) as rank
+
+    from work
+    join work_type on work.type = work_type.id
+
+    where work.comment is not null 
+        and length(work.comment) > 0
+)
+select work_type, work_name, comment_length, comment
+from rank_length
+where rank = 1
 order by work_type asc, work_name;
 
 
@@ -14,6 +22,6 @@ order by work_type asc, work_name;
 -- https://piazza.com/class/ll5n5kglj76qh/post/111
 --
 -- For Q4: 
--- DuckDB: Run Time (s): real 0.096 user 0.236648 sys 0.077023
--- SQLite: Run Time: real 0.312 user 0.169772 sys 0.066871
+-- DuckDB: Run Time (s): real 0.038 user 0.179704 sys 0.035361
+-- SQLite: Run Time: real 0.384 user 0.216508 sys 0.083559
 --
