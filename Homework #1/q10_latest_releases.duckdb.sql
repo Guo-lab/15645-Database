@@ -19,8 +19,8 @@
 --     release_info.date_day DESC;
 
 
-SELECT artist.name AS artist_name,
-    release.name AS release_name,
+SELECT ANY_VALUE(artist.name) AS artist_name,
+    ANY_VALUE(release.name) AS release_name,
     release_info.date_year AS release_year
 
 FROM artist

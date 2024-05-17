@@ -6,12 +6,15 @@
 | Question | Done | Without Bugs |
 |--------|--------|--------|
 | Q1 | √ | √ |
-| Q2 | √ | Unknown |
-| Q3 | √ | Unknown |
+| Q2 | √ | √ |
+| Q3 | √ | √ |
 | Q4 | √ | √ | 
 | Q5 | √ | √ |
-| Q6 | √ | Unknown | 
-| Q7 | √ | Unknown |
-| Q8 | √ | Unknown |
+| Q6 | √ | √ | 
+| Q7 | √ | √ |
+| Q8 | √ | √ |
 | Q9 | √ | √ |
-| Q10| √ | Unknown |
+| Q10| √ | √ |
+
+
+Additional information: I have Checked all the answers with my friend.  
