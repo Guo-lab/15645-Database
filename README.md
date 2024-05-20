@@ -14,5 +14,6 @@
 - [CS 自学指南](https://csdiy.wiki/数据库系统/15445/)
 - [TA Chi's Blog](https://www.zhihu.com/tardis/zm/art/592782024?source_id=1003)
 - [存活指北](https://www.zhihu.com/tardis/zm/art/592782024?source_id=1003)
-
+- [Fall 18 Notes](https://zhenghe.gitbook.io/open-courses) 
 - 
+
