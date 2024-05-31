@@ -11,3 +11,9 @@ select distinct(name) from artist_type order by name;
 -- Orchestra
 -- Other
 -- Person
+
+
+
+-- Window Function & CTE: 
+--  https://developer.aliyun.com/article/1174173
+--  https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html?spm=a2c6h.12873639.article-detail.31.1c2713c1uI8950
