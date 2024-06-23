@@ -1,0 +1,1 @@
+{"rule":"IT_IS_JJ_TO_VBG","sentence":"^\\QHowever, it is subject to cascading aborts.\\E$"}

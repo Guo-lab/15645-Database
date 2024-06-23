@@ -73,6 +73,8 @@
   breakatwhitespace=true,
 }
 
+\usepackage{changepage}
+\newenvironment{indented}{\par\setlength{\parindent}{3em}}{\par}
 
 
 \newcommand{\num}{}
@@ -110,9 +112,93 @@ While, here, DBMS wants to give the illusion that we are operating with the data
 \begin{figure}[h]
   % \centering
   \hspace{-40pt}
-  \includegraphics[width=1.15\textwidth]{../diagram/course-notes.jpg}
+  \includegraphics[width=1.15\textwidth]{../assets/course-notes.jpg}
   \caption{Course lec{\footnotesize\textcolor{blue}{\#}}1 - lec{\footnotesize\textcolor{blue}{\#}}14 Overview}
 \end{figure}
+
+The above figure shows the overview of the course from lec\#01 to lec\#14.
+
+\section*{Concurrency Control Theory \& Recovery}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{../assets/serializable.jpg}
+  \caption{Serializable}
+\end{figure}
+
+lec15: \textbf{Logging} \& \textbf{Shadow Paging} \\
+
+\vspace*{3em}
+
+lec16: \textbf{Two-Phase Locking} (Locks during entire transactions are kept in Lock Manager to protect Database Contents.) \\
+
+% \begin{indented}
+\begin{adjustwidth}{2em}{0pt}
+  \textbf{Phase \#1: Growing} \\
+
+  → Each txn requests the locks that it needs from the DBMS's
+  lock manager.
+  
+  → The lock manager grants/denies lock requests. \\
+  
+  \textbf{Phase \#2: Shrinking} \\
+
+  → The txn is allowed to only release/ downgrade locks that it previously acquired. It cannot acquire new locks. \\
+  
+  2PL guarantees conflict serializability because it generates schedules whose precedence graph is acyclic. However, it is subject to cascading aborts (one txn holds the lock on one object which was hold by another txn, then this txn also has to be aborted once that txn was aborted.) \\
+  
+  To solve this, \textbf{strong strict 2PL} ensure the txn releases all locks after is has ended. \\
+  
+  Based on the DATABASE LOCK HIERARCHY, we have extra \textbf{Intention Locks} for higher parallelism (as we traverse down the hierarchy and know what we intend to do). {IS, IX, SIX}\\
+
+\end{adjustwidth}
+% \end{indented}
+
+\vspace*{3em}
+lec17: \textbf{A serialization mechanism: Timestamp Ordering} \\
+\begin{adjustwidth}{2em}{0pt}
+  (I) Do not read stuff from the future. \\
+  (II) Can't write if a future transaction has read or written to the object. \\
+\end{adjustwidth}
+
+\vspace*{0cm}
+lec17: \textbf{Optimistic Concurrency Control (OCC)} \\ 
+\begin{adjustwidth}{2em}{0pt}
+  \textbf{\#1 - Read Phase:} \\
+  → Track the read / write sets of txns and store their writes in a private workspace. \\
+  Read and write objects, making local copies. \\
+
+  \textbf{\#2 - Validation Phase:} \\
+  → When a txn commits, check whether it conflicts with other txns. \\
+  Check for serializable schedule-related anomalies. \\
+  
+  if Validation (Ti < Tj) \\
+  Case 1: Ti completes its write phase before Tj starts its read phase. \\  
+  Case 2: Ti completes its write phase before Tj starts its write phase. \\
+  \hspace*{1em}Check: WriteSet($T_i$) $\cap$ ReadSet ($T_j$) = $\emptyset$ \\
+  Case 3: Ti completes its read phase right after Tj ends its read phase. \\
+  \hspace*{1em}Check: WriteSet($T_i$) $\cap$ ReadSet ($T_j$) = $\emptyset$ $\&\&$ WriteSet($T_i$) $\cap$ WriteSet($T_j$) = $\emptyset$ \\
+
+  \textbf{\#3 - Write Phase:} \\
+  → If validation succeeds, apply private changes to database. Otherwise abort and restart the txn. \\
+  Propagate changes in the tn's write set to database to make them visible to other txns. \\
+  \begin{adjustwidth}{1em}{0pt}
+  Serial Commits: \\
+  $\star$ Use a global latch to limit a single txn to be in the Validation/Write phases at a time. \\
+  
+  Parallel Commits: \\
+  $\star$ Use fine-grained write latches to support parallel Validation/Write phases \\
+  $\star$ Ixns acquire latches in primary key order to avoid deadlocks. \\
+  \end{adjustwidth}
+
+  \textbf{Problem}: \\
+  → OCC is not suitable for works well high \# of conflicts. \\
+  → High overhead for copying data locally. \\
+  → Validation/ Write phase bottlenecks. \\
+\end{adjustwidth}
+
+
+\vspace*{3em}
+lec18: \textbf{Multi-Version Concurrency Control (MVCC)} \\
 
 
 % \subsection*{title}
