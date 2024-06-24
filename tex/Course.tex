@@ -75,7 +75,7 @@
 
 \usepackage{changepage}
 \newenvironment{indented}{\par\setlength{\parindent}{3em}}{\par}
-
+\usepackage{setspace}
 
 \newcommand{\num}{}
 \newcommand{\topic}{ }
@@ -125,7 +125,7 @@ The above figure shows the overview of the course from lec\#01 to lec\#14.
   \caption{Serializable}
 \end{figure}
 
-lec15: \textbf{Logging} \& \textbf{Shadow Paging} \\
+lec15: ACID \& \textbf{Logging} \& \textbf{Shadow Paging} \\
 
 \vspace*{3em}
 
@@ -154,15 +154,18 @@ lec16: \textbf{Two-Phase Locking} (Locks during entire transactions are kept in 
 % \end{indented}
 
 \vspace*{3em}
-lec17: \textbf{A serialization mechanism: Timestamp Ordering} \\
+lec17: \textbf{A serialization mechanism: Timestamp Ordering}
 \begin{adjustwidth}{2em}{0pt}
+  \begin{spacing}{1.2}
   (I) Do not read stuff from the future. \\
   (II) Can't write if a future transaction has read or written to the object. \\
+    \end{spacing}
 \end{adjustwidth}
 
 \vspace*{0cm}
 lec17: \textbf{Optimistic Concurrency Control (OCC)} \\ 
 \begin{adjustwidth}{2em}{0pt}
+  \begin{spacing}{1.2}
   \textbf{\#1 - Read Phase:} \\
   → Track the read / write sets of txns and store their writes in a private workspace. \\
   Read and write objects, making local copies. \\
@@ -194,13 +197,128 @@ lec17: \textbf{Optimistic Concurrency Control (OCC)} \\
   → OCC is not suitable for works well high \# of conflicts. \\
   → High overhead for copying data locally. \\
   → Validation/ Write phase bottlenecks. \\
+  \end{spacing}
 \end{adjustwidth}
 
+\begin{adjustwidth}{2em}{0pt}
+  $\star$ For Dynamic Databases, \\ 
+    (1) Re-Execute Scans, (2) Predicate Locking (rarely), and (3) Index Locking. \\
 
-\vspace*{3em}
-lec18: \textbf{Multi-Version Concurrency Control (MVCC)} \\
+  $\star$ \hyperref{https://en.wikipedia.org/wiki/Isolation_%28database_systems%29#Non-repeatable_reads}{category}{name}{Unrepeatable Read vs. Phantom} \\
+\end{adjustwidth}
+
+lec18: \textbf{Multi-Version Concurrency Control (MVCC)}
+\begin{adjustwidth}{2em}{0pt}
+  \begin{spacing}{1.2}
+  Similar to what is included in 15640 Distributed System Project,  \\
+  → When a txn writes to an object, the DBMS creates a new version of that object. \\
+  → When a txn reads an object, it reads the newest version that existed when the txn started. \\
+
+  \textbf{Writers do not block readers.} \\
+  \textbf{Readers do not block writers.} \\
+  Read-only txns do not need to acquire locks, and use timestamps to determine visibility. \\
+
+  \end{spacing}
+\end{adjustwidth}
+\vspace*{9em}
+
+lec19: \textbf{MVCC \& Logging}
+\begin{spacing}{1.2}
+  In addition to concurrency control mechanism like 2PL, (Timestamp Ordering) OCC, we also need the version control mechanism like MVCC in lec.18-19. \\ 
+  All these are for better balance between serializability and parallelism. \\
+  $\star$Concurrency Control Protocol \\
+  $\star$Version Storage \\
+  \begin{adjustwidth}{2em}{0pt}
+  Approach 1: Append-Only Storage → New versions are appended to the same table space. \\
+  Approach 2: Time-Travel Storage → Old versions are copied to separate table space. Update the pointers. \\
+  Approach 3: Delta Storage → The original values of the modified attributes are copied into a separate delta record space. \\
+  \end{adjustwidth}
+  $\star$Garbage Collection (cleaning up the versions) \\
+  \begin{adjustwidth}{2em}{0pt}
+  Approach 1: Tuple-level → Find old versions by examining tuples directly.\\
+  Approach 2: Transaction-level → Txns keep track of their old versions, so the DBMS does not have to scan tuples to determine visibility. \\
+  \end{adjustwidth}
+  $\star$Index Management \\
+  Primary Key indexes point to version chain head. \\
+  Secondary indexes: Logical Pointers or Physical Pointers. (converter: global record ID)\\ 
+  $\star$Delete \\
+\end{spacing}
+
+\vspace*{0em}
+
+lec19-20: \textbf{Recovery} \\
+
+\begin{spacing}{1.2}
+  \textbf{<I> Actions during txn processing to ensure recovery from a failure:} \\
+  \textbf{$\star$ Shadow Paging (Master \& Shadow)}'s Buffer Pool policy: 
+  \begin{adjustwidth}{2em}{0pt}
+  NO-STEAL (not allowed uncommitted txn to overwrite the committed in non-volatile) + \\
+  FORCE (requires all updates made by a txn are reflected on non-volatile before the txn can commit)\\
+  \end{adjustwidth}
+  \textbf{$\star$ Write-Ahead Logging (WAL)}'s Buffer Pool Policy: STEAL + NO-FORCE. low-latency \& high throughput
+  \begin{adjustwidth}{2em}{0pt}
+  Maintain a log file separate from data files that contains the changes that txns make to database. \\
+  DBMS must write to disk the log file records that correspond to changes made to a database object before it can flush that object to disk. \\
+  A txn is not considered committed until all its log records have been written to stable storage.
+
+  \begin{adjustwidth}{2em}{0pt}
+    Checkpointing. \\
+  \end{adjustwidth}
+  \end{adjustwidth}
+
+  \textbf{<II> Actions after a failure to recover.}
+
+  Here, WAL records are used (guess, e.g. ARIES), and log sequence number (LSN) tracks the log records.
+  \begin{adjustwidth}{2em}{0pt}
+    Update the pageLSN every time a txn modifies a record in the page. \\
+    Update the flushedLSN in memory every time the DBMS writes the WAL buffer to disk. \\  
+    ABORT needs another two pointes previousLSN to walk through faster (with time passing, a bunch of records between two continuous ones), [and optional with UndoNextLSN, to undo. (in CLR operation)] \\
+  \end{adjustwidth}
+
+  Checkpoints: Active Transaction Table + Dirty Page Table \\
+  A point here is Fuzzy Checkpoint allows other active transactions to continue while the checkpoint is in progress. \\
+  \begin{adjustwidth}{2em}{0pt}
+    1. Checkpoint in WAL should be a range (CHECKPOINT-BEGIN, CHECKPOINT-END). \\
+    2. Txn after the CHECKPOINT-BEGIN will not be in the ATT in this CHECKPOINT-END; LSN after CHECKPOINT-BEGIN will not be into DB Master until CHECKPOINT-END. \\
+  \end{adjustwidth}
+
+  ARIES: Analysis, Redo, Undo. \\
+  Redo everything since the earliest dirty page. \\
+  Undo txns that never committed. \\
+  Write CLRs when undoing, to survive failures during restarts. \\
+  \hyperref{https://zhenghe.gitbook.io/open-courses/cmu-15-445-645-database-systems/database-recovery}{category}{name}{reference}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../assets/ARIES.jpg}
+    \caption{Serializable}
+  \end{figure}
+  
+  % Generated by Copilot
+  % \textbf{Recovery Manager} \\
+  % → Log Manager: Write-Ahead Logging (WAL) \\
+  % → Checkpointing: Periodically write the state of the DBMS to disk. \\
+  % → Recovery: Redo/Undo \\
+  % \textbf{Recovery Algorithms} \\
+  % → ARIES: Write-Ahead Logging (WAL) \\
+  % → REDO: Reapply changes from the log to the database. \\
+  % → UNDO: Rollback changes from the log to the database. \\
+  % \textbf{Recovery Protocols} \\
+  % → Immediate Update: Write changes to the log and database simultaneously. \\
+  % → Deferred Update: Write changes to the log first, then to the database. \\
+  % \textbf{Recovery Points} \\
+  % → System Restart: Start from the last checkpoint. \\
+  % → Transaction Restart: Start from the last checkpoint. \\
+  % → Media Recovery: Restore the database from a backup. \\
+  % \textbf{Recovery Guarantees} \\
+  % → Durability: Changes are permanent. \\
+  % → Atomicity: Transactions are all-or-nothing. \\
+  % → Consistency: Transactions preserve the database invariants. \\
+  % → Isolation: Transactions are isolated from each other. \\
+\end{spacing}
 
 
+\vspace*{10em}
+lec21-END: \textbf{Distributed Databases} \\
 % \subsection*{title}
 % The communication between the proxy and the server is based on JAVA RMI Interface. The server implemented those functions which would work as stubs in the proxy. Each time, the proxy would make RPC calls to the server, just like what the clients did in the project one. \\
 
