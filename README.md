@@ -1,7 +1,7 @@
 ## CMU 15645 Database Systems
 
 ### Reference: 
-- [Discord](https://discord.com/channels/724929902075445281/724929902943404074)
+- [Discord](https://discord.gg/YF7dMCg)
 
 ### 2023
 - [Fall 2023 Official Course Webpage](https://15445.courses.cs.cmu.edu/fall2023/)
