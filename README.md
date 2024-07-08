@@ -17,3 +17,4 @@
 - [Fall 18 Notes](https://zhenghe.gitbook.io/open-courses) 
 - 
 
+The Project bustub-private submodule now is private due to Copyright (c) 2015-2021, Carnegie Mellon University Database Group. 
